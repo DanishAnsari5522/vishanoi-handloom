@@ -1,9 +1,12 @@
 import React from 'react'
+import Category from './category'
+import Product from './product'
 
 export default function Homes() {
   return (
     <>
-    <p className='text-xl'>Home Page </p>
+<Category />
+<Product/>
     </>
   )
 }
