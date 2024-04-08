@@ -20,9 +20,30 @@ body {
   color: rgb(var(--foreground-rgb));
   background: white;
 }
+.container {
+  max-width: 1280px;
+}
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+.custom-button {
+  border: 2px solid black;
+  height: 50px;
+  width: 150px;
+  background-color: transparent;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button.hovered {
+  background-color: #e8c463;
+  border: none;
+  color:white;
+  font-weight: 600;
+
 }
