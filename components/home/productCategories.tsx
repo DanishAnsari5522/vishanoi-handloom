@@ -64,14 +64,14 @@ export default function ProductCategories() {
         <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
       </div>
       <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-  <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+  <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
 </div>
 
       </div>
       
       <div className="gap-2 grid grid-cols-1 md:grid-cols-4">
         {data.map((item, index) => (
-          <Card className="py-4">
+          <Card className="py-4" key={index}>
 
             <CardBody className="overflow-visible py-2">
               <Image

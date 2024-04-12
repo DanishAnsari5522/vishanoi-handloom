@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, AvatarGroup } from "@nextui-org/react";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faFacebook, faInstagram, faTwitter, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
+// import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+// import { faFacebook, faInstagram, faTwitter, faYoutube, faLinkedin } from '@fortawesome/free-brands-svg-icons';
 import { Card, CardBody, CardFooter, CardHeader, Image } from "@nextui-org/react";
 import Bedsheet from "../../public/assests/Sheet1.jpg"
 import { Divider } from "@nextui-org/react";
@@ -57,7 +57,7 @@ export const Footer = () => {
             </Button>
           </Tooltip>
         </div>
-        
+
         <div style={{ marginTop: '20px' }}>
           <AvatarGroup isBordered isDisabled>
             <Avatar src="https://i.pravatar.cc/150?u=a042581f4e29026024d" />
@@ -69,12 +69,12 @@ export const Footer = () => {
           </AvatarGroup>
 
           <div className="ml-4">
-          <FontAwesomeIcon icon={faFacebook} className="text-blue-600 text-lg hover:text-blue-800 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
+            {/* <FontAwesomeIcon icon={faFacebook} className="text-blue-600 text-lg hover:text-blue-800 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
           <FontAwesomeIcon icon={faInstagram} className="text-pink-600 text-lg hover:text-pink-800 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
           <FontAwesomeIcon icon={faTwitter} className="text-blue-400 text-lg hover:text-blue-600 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
           <FontAwesomeIcon icon={faYoutube} className="text-red-600 text-lg hover:text-red-800 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
-          <FontAwesomeIcon icon={faLinkedin} className="text-blue-800 text-lg hover:text-blue-900 mx-1 transition duration-300 ease-in-out transform hover:scale-110" />
-        </div>
+          <FontAwesomeIcon icon={faLinkedin} className="text-blue-800 text-lg hover:text-blue-900 mx-1 transition duration-300 ease-in-out transform hover:scale-110" /> */}
+          </div>
 
           <div style={{ marginTop: '400px' }} className="container mx-auto">
             <div className="container mx-auto flex justify-center">

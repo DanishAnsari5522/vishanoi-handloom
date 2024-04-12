@@ -83,7 +83,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
@@ -143,7 +143,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
@@ -203,7 +203,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
@@ -263,7 +263,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
@@ -323,7 +323,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
@@ -383,7 +383,7 @@ export default function Product() {
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don't miss out on these in-demand products</p>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
                 </div>
 
             </div>
