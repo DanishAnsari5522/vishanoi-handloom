@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Card, CardBody, CardFooter, CardHeader, Button, Image } from "@nextui-org/react";
 
 
-export default function NewProduct() {
+export default function Bedsheet() {
     const [hovered, setHovered] = useState(false);
     const [hoveredIndex, setHoveredIndex] = useState(null);
     const handleHover = () => {
@@ -83,7 +83,7 @@ export default function NewProduct() {
                 <div className="my-8">
                 <div style={{ display: 'flex', alignItems: 'center' }}>
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
-                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>Blanket</div>
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>BEDSHEET</div>
                     <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
                 </div>
                 <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
