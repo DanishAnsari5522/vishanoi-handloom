@@ -5,32 +5,32 @@ export default function NewProduct() {
     const list = [
         {
             title: "Bedsheet",
-            img: "../assets/Images/Bedsheet2.webp",
+            img: "assets/Images/Bedsheet2.webp",
             price: "$5.50",
         },
         {
             title: "Dewan Set",
-            img: "/assets/Images/Bedsheet1.webp",
+            img: "assets/Images/Bedsheet1.webp",
             price: "$3.00",
         },
         {
             title: "Pillow Cover",
-            img: "/assets/Images/Bedsheet4.jpg",
+            img: "assets/Images/Bedsheet4.jpg",
             price: "$10.00",
         },
         {
             title: "Cusion Cover",
-            img: "/assets/Images/Bedsheet3.webp",
+            img: "assets/Images/Bedsheet3.webp",
             price: "$5.30",
         },
         {
             title: "Pillow covers",
-            img: "/assets/Images/Bedsheet2.webp",
+            img: "assets/Images/Bedsheet2.webp",
             price: "$10.00",
         },
         {
             title: "Mattress covers",
-            img: "/assets/Images/Bedsheet1.webp",
+            img: "assets/Images/Bedsheet1.webp",
             price: "$5.30",
         },
 
@@ -42,7 +42,7 @@ export default function NewProduct() {
                 <div className="my-8">
                     <div style={{ display: 'flex', alignItems: 'center' }}>
                         <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
-                        <div>
+                        <div className="md:mx-8">
                             <p className="text-2xl text-primary text-center">BEDSHEET</p>
                             <p >Don&apos;t miss out on these in-demand products</p>
 

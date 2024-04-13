@@ -11,32 +11,32 @@ export default function Category() {
   const list = [
     {
       title: "Bedsheet",
-      img: "../assets/Images/Bedsheet2.webp",
+      img: "assets/Images/Bedsheet2.webp",
       price: "$5.50",
     },
     {
       title: "Dewan Set",
-      img: "/assets/Images/Bedsheet1.webp",
+      img: "assets/Images/Bedsheet1.webp",
       price: "$3.00",
     },
     {
       title: "Pillow Cover",
-      img: "/assets/Images/Bedsheet4.jpg",
+      img: "assets/Images/Bedsheet4.jpg",
       price: "$10.00",
     },
     {
       title: "Cusion Cover",
-      img: "/assets/Images/Bedsheet3.webp",
+      img: "assets/Images/Bedsheet3.webp",
       price: "$5.30",
     },
     {
       title: "Pillow covers",
-      img: "/assets/Images/Bedsheet2.webp",
+      img: "assets/Images/Bedsheet2.webp",
       price: "$10.00",
     },
     {
       title: "Mattress covers",
-      img: "/assets/Images/Bedsheet1.webp",
+      img: "assets/Images/Bedsheet1.webp",
       price: "$5.30",
     },
 
