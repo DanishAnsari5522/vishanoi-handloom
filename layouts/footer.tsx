@@ -11,7 +11,7 @@ export const Footer = () => {
   return (
     <>
       <div style={{ backgroundColor: '#e2e8f0', height: '800px' }}>
-        <Table aria-label="Example static collection table" >
+        <Table aria-label="Example static collection table" className="border-none bg-none shadow-none bg-transparent">
           <TableHeader >
             <TableColumn >Bedroom Decor</TableColumn>
             <TableColumn>Living Room Decor</TableColumn>

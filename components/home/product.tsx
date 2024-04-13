@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Inter } from "next/font/google";
 import Homes from "@/components/home";
-import { Card, CardBody, CardFooter, CardHeader, Button,Image } from "@nextui-org/react";
+import { Card, CardBody, CardFooter, CardHeader, Button, Image } from "@nextui-org/react";
 // import Bedsheet1 from "../../public/assets/Images/Bedsheet1.webp"
 import Bedsheet2 from "../../public/assets/Images/Bedsheet4.jpg"
 
@@ -22,7 +22,7 @@ export default function Product() {
 
     const handlePrev = () => {
         console.log("handlePrev");
-        
+
         setStartIndex(prevIndex => Math.max(0, prevIndex - cardsPerPage));
     };
 
@@ -72,9 +72,9 @@ export default function Product() {
         price: "$5.30",
     }]
     return (
-        < div  style={{ padding: '0px' }}>
+        < div style={{ padding: '0px' }}>
             {/* <Homes /> */}
-           
+
 
             <div className="my-8">
                 <div style={{ display: 'flex', alignItems: 'center' }}>
@@ -104,8 +104,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}
@@ -164,8 +164,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}
@@ -224,8 +224,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}
@@ -284,8 +284,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}
@@ -344,8 +344,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}
@@ -404,8 +404,8 @@ export default function Product() {
                         >
                             {/* Your card content */}
                             <CardBody className="overflow-visible py-2 ">
-                                <Image    
-                                   isZoomed
+                                <Image
+                                    isZoomed
                                     alt="Card background"
                                     className="object-cover rounded-lg ease-in-out duration-700 delay-500"
                                     src={item.img}

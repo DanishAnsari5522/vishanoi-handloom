@@ -15,10 +15,12 @@
     --background-end-rgb: 0, 0, 0;
   }
 }
-
 body {
-  color: rgb(var(--foreground-rgb));
-  background: white;
+  font-family: "Open Sans", "Helvetica Neue", "Verdana", sans-serif;
+}
+
+.font-sans {
+  font-family: "Open Sans", "Helvetica Neue", "Verdana", sans-serif;
 }
 .container {
   max-width: 1280px;
