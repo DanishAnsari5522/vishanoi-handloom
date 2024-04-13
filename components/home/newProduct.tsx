@@ -5,7 +5,7 @@ export default function NewProduct() {
     const list = [
         {
             title: "Bedsheet",
-            img: "assets/Images/Bedsheet2.webp",
+            img: "assets/Images/Bedsheet3.webp",
             price: "$5.50",
         },
         {
@@ -25,7 +25,7 @@ export default function NewProduct() {
         },
         {
             title: "Pillow covers",
-            img: "assets/Images/Bedsheet2.webp",
+            img: "assets/Images/Bedsheet1.webp",
             price: "$10.00",
         },
         {

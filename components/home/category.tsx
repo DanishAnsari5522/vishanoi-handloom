@@ -11,7 +11,7 @@ export default function Category() {
   const list = [
     {
       title: "Bedsheet",
-      img: "assets/Images/Bedsheet2.webp",
+      img: "assets/Images/Bedsheet3.webp",
       price: "$5.50",
     },
     {
@@ -31,7 +31,7 @@ export default function Category() {
     },
     {
       title: "Pillow covers",
-      img: "assets/Images/Bedsheet2.webp",
+      img: "assets/Images/Bedsheet3.webp",
       price: "$10.00",
     },
     {
