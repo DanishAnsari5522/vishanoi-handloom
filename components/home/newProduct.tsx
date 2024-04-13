@@ -51,10 +51,10 @@ export default function NewProduct() {
                     </div>
                 </div>
 
-                <div style={{ padding: '0px' }}>
+                <div className="">
                     <h2 style={{ fontWeight: '600', marginLeft: '20px' }}>Your home for all </h2>
                     <p style={{ fontSize: '30px', fontWeight: '600', marginLeft: '20px', marginBottom: "10px" }}>Bedding essentials!</p>
-                    <div className="gap-4 grid grid-cols-6 max-md:grid-cols-1 max-lg:grid-cols-3">
+                    <div className="gap-4 grid grid-cols-6 max-md:grid-cols-1 max-lg:grid-cols-3 mt-8">
 
                         {list.map((item, index) => (
                             <Card key={index} isPressable onPress={() => console.log("item pressed")} className="shadow-none" >
