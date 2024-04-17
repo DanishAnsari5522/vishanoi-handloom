@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Navbar } from "@/components/navbar";
+import Navbars from "@/components/navbar";
 // import { Link } from "@nextui-org/link";
 import { Head } from "./head";
 import { Footer } from "./footer";
@@ -12,7 +12,7 @@ export default function DefaultLayout({
     return (
         <>
             <Head />
-            <Navbar />
+            <Navbars />
             <main>{children}</main>
             <Footer />
         </>
