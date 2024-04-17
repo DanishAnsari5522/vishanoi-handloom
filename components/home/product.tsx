@@ -34,7 +34,7 @@ export default function Product() {
     const data = [{
         title: "Bedsheet",
         img: "https://i5.walmartimages.com/asr/eec21a03-4627-4d99-8c75-89348f0016be.868789475ea23a887a8293e4b0521767.jpeg",
-        price: "$6.50",
+        price: "$5.50",
     },
     {
         title: "Blanket",
@@ -72,65 +72,370 @@ export default function Product() {
         price: "$5.30",
     }]
     return (
-        <>hshhs</>
-        // < div style={{ padding: '0px' }}>
-        //     {/* <Homes /> */}
+        < div style={{ padding: '0px' }}>
+            {/* <Homes /> */}
 
 
-        //     <div className="my-8">
-        //         <div style={{ display: 'flex', alignItems: 'center' }}>
-        //             <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
-        //             <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>BEDSHEET</div>
-        //             <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
-        //         </div>
-        //         <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
-        //             <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
-        //         </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>BEDSHEET</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
 
-        //     </div>
-        //     <div>
-        //         <Button
-        //             onClick={handlePrev}
-        //             className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
-        //         >
-        //             {'<'}
-        //         </Button>
-        //         <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
-        //             {data.map((item, index) => (
-        //                 <Card
-        //                     className="py-4"
-        //                     key={index}
-        //                     onMouseEnter={() => setHoveredIndex(null)}
-        //                     onMouseLeave={() => setHoveredIndex(null)}
-        //                 >
-        //                     <CardBody className="overflow-visible py-2 ">
-        //                         <Image
-        //                             isZoomed
-        //                             alt="Card background"
-        //                             className="object-cover rounded-lg ease-in-out duration-700 delay-500"
-        //                             src={item.img}
-        //                             width={270}
-        //                             height={270}
-        //                         />
-        //                     </CardBody>
-        //                     <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
-        //                         <p className="text-tiny uppercase font-bold">{item.title}</p>
-        //                         <small className="text-default-500">{item.price}</small >
-        //                         {/* <h4 className="font-bold text-large">{item.img}</h4> */}
-        //                     </CardHeader>
-        //                 </Card>
-        //             ))}
-        //         </div>
-        //         <Button
-        //             onClick={handleNext}
-        //             className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
-        //                 }`}
-        //         >
-        //             {'>'}
-        //         </Button>
-        //     </div>
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
 
-           
-        // </div>
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>DEWAN SET!</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
+
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>PILLOW COVER!</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
+
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>CUSHION COVER!</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
+
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>BOLSTER COVER!</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
+
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+            <div className="my-8">
+                <div style={{ display: 'flex', alignItems: 'center' }}>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                    <div style={{ margin: '0 300px', fontSize: "28px", fontWeight: '600' }}>MATTRESS COVER!</div>
+                    <div style={{ flex: 1, height: '2px', backgroundColor: '#e8c463' }} />
+                </div>
+                <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', height: '3vh' }}>
+                    <p style={{ fontWeight: '600', fontSize: '14px', color: 'gray', textAlign: 'center' }}>Don&apos;t miss out on these in-demand products</p>
+                </div>
+
+            </div>
+            <div>
+                <Button
+                    onClick={handlePrev}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === 0 ? 'text-black' : ''}`}
+                >
+                    {'<'}
+                </Button>
+                <div className="grid grid-cols-1 md:grid-cols-4 gap-2">
+                    {data.slice(startIndex, startIndex + cardsPerPage).map((item, index) => (
+                        <Card
+                            className="py-4"
+                            key={index}
+                            onMouseEnter={() => setHoveredIndex(null)}
+                            onMouseLeave={() => setHoveredIndex(null)}
+                        >
+                            {/* Your card content */}
+                            <CardBody className="overflow-visible py-2 ">
+                                <Image
+                                    isZoomed
+                                    alt="Card background"
+                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500"
+                                    src={item.img}
+                                    width={270}
+                                    height={270}
+                                />
+                            </CardBody>
+                            <CardHeader className="pb-0 pt-2 px-4 flex-col items-start">
+                                <p className="text-tiny uppercase font-bold">{item.title}</p>
+                                <small className="text-default-500">{item.price}</small>
+                                {/* <h4 className="font-bold text-large">{item.img}</h4> */}
+                            </CardHeader>
+                        </Card>
+                    ))}
+                </div>
+                <Button
+                    onClick={handleNext}
+                    className={`bg-gray-200 px-2 py-1 rounded-md ${hoveredIndex === cardsPerPage - 1 ? 'text-black' : ''
+                        }`}
+                >
+                    {'>'}
+                </Button>
+            </div>
+
+            <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+
+                <Button className={`custom-button ${hovered ? 'hovered' : ''}`}
+                    onMouseEnter={handleHover}
+                    onMouseLeave={handleHover}>View all</Button>
+            </div>
+        </div>
     );
 }
