@@ -46,7 +46,7 @@ export default function Category() {
     ];
     console.log("title", list[5].title);
     // const ab = list[0].title;
-    const handleCategoryClick = (title) => {
+    const handleCategoryClick = (title:any) => {
         const url = `/category/${encodeURIComponent(title.toLowerCase().replace(/\s+/g, '-'))}`;
         console.log('Navigating to:', url);
         router.push(url);
