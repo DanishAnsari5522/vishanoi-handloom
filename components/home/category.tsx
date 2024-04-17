@@ -9,7 +9,7 @@ import Bedsheet1 from "../../public/assets/Images/Bedsheet1.webp"
 const inter = Inter({ subsets: ["latin"] });
 
 export default function Category() {
-    const router = useRouter();
+  const router = useRouter();
 
     const list = [
         {

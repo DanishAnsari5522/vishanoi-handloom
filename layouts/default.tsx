@@ -13,6 +13,7 @@ export default function DefaultLayout({
         <>
             <Head />
             <Navbars />
+            <Navbars />
             <main>{children}</main>
             <Footer />
         </>
