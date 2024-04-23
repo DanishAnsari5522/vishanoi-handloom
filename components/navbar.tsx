@@ -1,6 +1,8 @@
 import React from "react";
+import Image from 'next/image';
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
+// import VishnoiLogo from "../public/assets/Images/VishnoiLogo.png"
 
 export default function Navbars() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
@@ -8,6 +10,7 @@ export default function Navbars() {
   const menuItems = [
     "HOME",
     "ABOUT",
+    "Contact",
     "PRODUCTS"
 
   ];
@@ -24,15 +27,18 @@ export default function Navbars() {
 
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
-          {/* <AcmeLogo /> */}
-          <p className="font-bold text-inherit">ACME</p>
+          <Image
+          src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
+           />
+       
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarBrand>
-          {/* <AcmeLogo /> */}
-          <p className="font-bold text-inherit">VISHNOI HANDLOOM</p>
+        <Image
+          src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
+           />         
         </NavbarBrand>
         <NavbarItem>
           <Link color="foreground" href="/">
@@ -42,6 +48,11 @@ export default function Navbars() {
         <NavbarItem isActive>
           <Link color="foreground" href="/aboutUs" >
             ABOUT
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/contactUS">
+            CONTACT
           </Link>
         </NavbarItem>
         <NavbarItem>
