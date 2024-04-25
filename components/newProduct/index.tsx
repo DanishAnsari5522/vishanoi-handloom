@@ -6,7 +6,7 @@ export default function NewProduct() {
     <>
       {/* <Homes />  */}
       <Hero/>
-      <div className='container mx-auto px-5'>
+      <div className='container mx-auto px-5 my-12'>
       <AllProducts />
       </div>
       
