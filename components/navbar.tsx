@@ -28,24 +28,24 @@ export default function Navbars() {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <Image
-          src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
-           />
-       
+            src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
+          />
+
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarBrand>
-        <Image
-          src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
-           />         
+          <Image
+            src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
+          />
         </NavbarBrand>
         <NavbarItem>
           <Link color="foreground" href="/">
             HOME
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem >
           <Link color="foreground" href="/aboutUs" >
             ABOUT
           </Link>
@@ -65,20 +65,26 @@ export default function Navbars() {
 
 
       <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+        <NavbarItem>
+          <Link color="foreground" href="/">
+            HOME
+          </Link>
+        </NavbarItem>
+        <NavbarItem >
+          <Link color="foreground" href="/aboutUs" >
+            ABOUT
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/contactUS">
+            CONTACT
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/newProduct">
+            PRODUCT
+          </Link>
+        </NavbarItem>
       </NavbarMenu>
     </Navbar>
   );
