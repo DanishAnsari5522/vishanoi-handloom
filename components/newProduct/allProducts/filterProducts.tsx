@@ -43,7 +43,7 @@ export default function FilterProducts(props:any) {
         <>
             <div className="my-12">
                 {/* <p>{props.title}</p> */}
-                <div className="grid grid-cols-5  max-md:grid-cols-2 gap-2 max-lg:grid-cols-3">
+                <div className="grid grid-cols-5  max-md:grid-cols-1 gap-2 max-lg:grid-cols-3">
                  
                     {list.map((item, index) => (
                         <Card

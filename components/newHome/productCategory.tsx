@@ -49,11 +49,11 @@ export default function ProductCategory() {
                             key={index}
                            
                         >
-                            <CardBody className="overflow-visible py-2 ">
+                            <CardBody className="overflow-visible py-2  object-cover">
                                 <Image
                                     isZoomed
                                     alt="Card background"
-                                    className="object-cover rounded-lg ease-in-out duration-700 delay-500 h-full min-h-[300px] max-h-[300px] w-full min-w-full"
+                                    className=" rounded-lg ease-in-out duration-700 delay-500 h-[300px]"
                                     src={item.img}
 
                                 />
