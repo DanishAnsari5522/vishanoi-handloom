@@ -117,8 +117,8 @@ export default function AdminProduct() {
 
     return (
         <div className='flex flex-col justify-center items-center gap-[20px] mt-[50px] '>
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-[20px] md:w-1/2 max-md-w-full border-[1px]">
-                <p className='text-center font-bold text-size-[60px]'>Admin Product</p>
+            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-[20px] md:w-1/4 max-md-w-full border-[1px]">
+                <p className='text-center font-bold text-size-[60px]'>Add Product</p>
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
                     <Select
                         label="Select a Category"
@@ -142,8 +142,8 @@ export default function AdminProduct() {
                     onChange={(e) => setProductName(e.target.value)}
                 />
                 <div className="flex items-center justify-center">
-                    <label htmlFor="file-upload" className="custom-file-upload">
-                        <i className="fas fa-cloud-upload-alt"></i> Upload Product Image
+                <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
+                        Upload Product Image
                     </label>
                     <input
                         id="file-upload"
