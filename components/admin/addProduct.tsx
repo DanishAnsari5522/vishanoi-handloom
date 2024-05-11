@@ -4,12 +4,58 @@ import axios from 'axios';
 
 export default function AdminProduct() {
     const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
-    const [selectedFile, setSelectedFile] = useState<any>(null);
-    const [productName, setProductName] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('');
-    const { isOpen, onOpen, onClose } = useDisclosure();
+    // const [selectedFile, setSelectedFile] = useState<any>(null);
+    // const [productName, setProductName] = useState('');
+    const [selectedCategory, setSelectedCategory]:any = useState();
+    // const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const token = sessionStorage.getItem('token');
+    // const token = sessionStorage.getItem('token');
+
+    // const handleFileChange = (e: any) => {
+    //     const file = e.target.files[0]; // Access the first selected file
+    //     setSelectedFile(file);
+    //     console.log("selectedFile", file);
+    // };
+
+    // const handleUpload = () => {
+    //     handleOpen()
+    //     const formData = new FormData();
+    //     formData.append('file', selectedFile);
+    //     formData.append('productName', productName);
+    //     formData.append('category', selectedCategory);
+
+    //     axios.post('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', formData, {
+    //         headers: {
+    //             'Content-Type': 'multipart/form-data',
+    //             'Authorization': `Bearer ${token}`
+    //         }
+    //     })
+    //         .then(response => {
+    //             handleOpen()
+    //             console.log('Upload successful', response);
+    //         })
+    //         .catch(error => {
+    //             console.error('Error uploading file', error);
+    //         });
+    //     console.log(formData);
+
+    // }
+    // const handleOpen = () => {
+    //     onOpen();
+    // }
+
+    const [productDetail, setProductDetail] = useState('');
+    const [productPrice, setProductPrice] = useState(0);
+    const [productCategori, setProductCategori] = useState('');
+    const [productName, setProductName] = useState('');
+    const [selectedFile, setSelectedFile]: any = useState(null);
+    // const [productImage, setProductImage] = useState('');
+    const [error, setError] = useState('');
+
+    const [loading, setLoading] = useState(false);
+    const [image, setImage] = useState("")
+    console.log(image);
+    console.log(selectedCategory);
 
     const handleFileChange = (e: any) => {
         const file = e.target.files[0]; // Access the first selected file
@@ -17,30 +63,57 @@ export default function AdminProduct() {
         console.log("selectedFile", file);
     };
 
-    const handleUpload = () => {
-        handleOpen()
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-        formData.append('productName', productName);
-        formData.append('category', selectedCategory);
+    const onSubmit = async () => {
 
-        axios.post('YOUR_API_ENDPOINT', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': `Bearer ${token}`
-            }
+        const data = new FormData();
+        data.append('file', selectedFile)
+        data.append('upload_preset', 'Helohair')
+        setLoading(true)
+        console.log(data);
+
+
+        const res = await fetch("https://api.cloudinary.com/v1_1/dbz8cdpis/image/upload", {
+            method: 'POST',
+            body: data
         })
-            .then(response => {
-                handleOpen()
-                console.log('Upload successful', response);
+        const file = await res.json()
+        console.log(file.url);
+        console.log(selectedCategory);
+
+        // setProductImage(file.url)
+        console.log(productName, productPrice, selectedCategory, file.url);
+        let productImage;
+        if (file.url) {
+            productImage = file.url;
+            console.log("uploaded");
+            fetch('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
+                method: 'POST',
+                body: JSON.stringify({ name: productName, category: category[selectedCategory], coverURL: file.url, discription: 'test', price: productPrice }),
+                headers: {
+                    'Content-Type': 'application/json',
+                }
             })
-            .catch(error => {
-                console.error('Error uploading file', error);
-            });
+                .then(res => res.json()).then(
+                    data => {
+                        console.log(data);
+                        if (data.success == false) {
+                            setError(data.success);
+                            alert(data.success)
+                            // alert("Select the Category");
+                        } else {
+                            // navigation.navigate('Home');
+                            alert("Submit successfully");
+                            window.location.replace("/newProduct");
+                        }
+                    }
+                )
+
+        } else {
+            console.log("uploaded");
+        }
     }
-    const handleOpen = () => {
-        onOpen();
-    }
+
+
 
     return (
         <div className='flex flex-col justify-center items-center gap-[20px] mt-[50px] '>
@@ -78,14 +151,14 @@ export default function AdminProduct() {
                         className="hidden border-[2px]"
                         onChange={handleFileChange}
                     />
-                    {selectedFile && (
+                    {/* {selectedFile && (
                         <p className="ml-4">Selected file: {selectedFile.name}</p>
-                    )}
+                    )} */}
                 </div>
-                <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={handleUpload}>
+                <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={onSubmit}>
                     Upload
                 </button>
-                <Modal
+                {/* <Modal
                     size={"xs"}
                     isOpen={isOpen}
                     onClose={onClose}
@@ -111,7 +184,7 @@ export default function AdminProduct() {
                             </>
                         )}
                     </ModalContent>
-                </Modal>
+                </Modal> */}
             </div>
         </div>
     )
