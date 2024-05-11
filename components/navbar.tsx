@@ -1,11 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import Image from 'next/image';
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 // import VishnoiLogo from "../public/assets/Images/VishnoiLogo.png"
 
 export default function Navbars() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
 
   const menuItems = [
     "HOME",
@@ -40,7 +41,8 @@ export default function Navbars() {
             src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
           />
         </NavbarBrand>
-        <NavbarItem>
+        <NavbarItem onClick={()=>(setIsMenuOpen(true))}>
+
           <Link color="foreground" href="/">
             HOME
           </Link>
@@ -64,24 +66,26 @@ export default function Navbars() {
 
 
 
-      <NavbarMenu>
+      <NavbarMenu  
+      isMenuOpen={isMenuOpen}
+      onMenuOpenChange={setIsMenuOpen} >
         <NavbarItem>
-          <Link color="foreground" href="/">
+          <Link color="foreground" href="/" onClick={()=>(setIsMenuOpen(false))}>
             HOME
           </Link>
         </NavbarItem>
         <NavbarItem >
-          <Link color="foreground" href="/aboutUs" >
+          <Link color="foreground" href="/aboutUs" onClick={()=>(setIsMenuOpen(false))}>
             ABOUT
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contactUS">
+          <Link color="foreground" href="/contactUS" onClick={()=>(setIsMenuOpen(false))}>
             CONTACT
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/newProduct">
+          <Link color="foreground" href="/newProduct" onClick={()=>(setIsMenuOpen(false))}>
             PRODUCT
           </Link>
         </NavbarItem>
