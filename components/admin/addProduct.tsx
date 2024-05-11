@@ -6,7 +6,7 @@ export default function AdminProduct() {
     const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
     // const [selectedFile, setSelectedFile] = useState<any>(null);
     // const [productName, setProductName] = useState('');
-    const [selectedCategory, setSelectedCategory]:any = useState();
+    const [selectedCategory, setSelectedCategory]: any = useState();
     // const { isOpen, onOpen, onClose } = useDisclosure();
 
     // const token = sessionStorage.getItem('token');
@@ -50,6 +50,7 @@ export default function AdminProduct() {
     const [productName, setProductName] = useState('');
     const [selectedFile, setSelectedFile]: any = useState(null);
     // const [productImage, setProductImage] = useState('');
+    const [productData, setProuctData]: any = useState()
     const [error, setError] = useState('');
 
     const [loading, setLoading] = useState(false);
@@ -81,32 +82,50 @@ export default function AdminProduct() {
         console.log(selectedCategory);
 
         // setProductImage(file.url)
-        console.log(productName, productPrice, selectedCategory, file.url);
+        console.log(productName, category[selectedCategory], file.url, 'test', productPrice);
         let productImage;
         if (file.url) {
             productImage = file.url;
             console.log("uploaded");
-            fetch('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
-                method: 'POST',
-                body: JSON.stringify({ name: productName, category: category[selectedCategory], coverURL: file.url, discription: 'test', price: productPrice }),
-                headers: {
-                    'Content-Type': 'application/json',
-                }
-            })
-                .then(res => res.json()).then(
-                    data => {
-                        console.log(data);
-                        if (data.success == false) {
-                            setError(data.success);
-                            alert(data.success)
-                            // alert("Select the Category");
-                        } else {
-                            // navigation.navigate('Home');
-                            alert("Submit successfully");
-                            window.location.replace("/newProduct");
-                        }
-                    }
-                )
+
+            // fetch('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
+            //     method: 'POST',
+            //     body: JSON.stringify({ name: productName, category: category[selectedCategory], coverURL: file.url, discription: "test", price: productPrice }),
+            //     headers: {
+            //         'Content-Type': 'application/json',
+            //     }
+            // })
+            //     .then(res => res.json()).then(
+            //         data => {
+            //             console.log(data);
+            //             if (data.success == false) {
+            //                 setError(data.success);
+            //                 alert(data.success)
+            //                 // alert("Select the Category");
+            //             } else {
+            //                 // navigation.navigate('Home');
+            //                 alert("Submit successfully");
+            //                 window.location.replace("/newProduct");
+            //             }
+            //         }
+            //     )
+
+
+            try {
+                const response = await axios.post('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
+                    name: productName,
+                    category: category[selectedCategory],
+                    coverURL: file.url,
+                    discription: "test",
+                    price: productPrice
+                });
+                const newToken = response.data;
+                // setProuctData(newToken);
+                // router.push('/admin');
+                alert('done')
+            } catch (error) {
+                console.error('Login failed:', error);
+            }
 
         } else {
             console.log("uploaded");
@@ -142,7 +161,7 @@ export default function AdminProduct() {
                     onChange={(e) => setProductName(e.target.value)}
                 />
                 <div className="flex items-center justify-center">
-                <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
+                    <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
                         Upload Product Image
                     </label>
                     <input
