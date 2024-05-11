@@ -43,7 +43,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="my-8">
-                        <Button className="rounded-full mt-3" color="primary" variant="ghost">Submit</Button>
+                        <Button className="w-[200px] bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" >Submit</Button>
 
                     </div>
 
