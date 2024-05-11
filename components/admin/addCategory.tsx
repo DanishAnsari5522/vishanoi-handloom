@@ -2,11 +2,11 @@ import React, { useState } from 'react';
 import { Select, SelectItem, Input, Modal, ModalBody, ModalContent, ModalFooter, Button, ModalHeader, useDisclosure } from "@nextui-org/react";
 import axios from 'axios';
 
-export default function AdminProduct() {
-    const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
+export default function AddCategory() {
+    // const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
     const [selectedFile, setSelectedFile] = useState<any>(null);
-    const [productName, setProductName] = useState('');
-    const [selectedCategory, setSelectedCategory] = useState('');
+    // const [productName, setProductName] = useState('');
+    const [category, setCategory] = useState('');
     const { isOpen, onOpen, onClose } = useDisclosure();
 
     const token = sessionStorage.getItem('token');
@@ -21,8 +21,8 @@ export default function AdminProduct() {
         handleOpen()
         const formData = new FormData();
         formData.append('file', selectedFile);
-        formData.append('productName', productName);
-        formData.append('category', selectedCategory);
+        // formData.append('productName', productName);
+        // formData.append('category', selectedCategory);
 
         axios.post('YOUR_API_ENDPOINT', formData, {
             headers: {
@@ -44,38 +44,27 @@ export default function AdminProduct() {
 
     return (
         <div className='flex flex-col justify-center items-center gap-[20px] mt-[50px] '>
-            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-[20px] md:w-1/4 max-md-w-full border-[1px]">
-                <p className='text-center font-bold text-size-[60px]'>Add Product</p>
+            <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-[20px] md:w-1/4 max-md-w-1/4 border-[1px]">
+                <p className='text-center font-bold text-size-[60px]'>Add Category</p>
                 <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
-                    <Select
-                        label="Select a Category"
-                        className="max-w-xs"
-                        value={selectedCategory}
-                        onChange={(e) => setSelectedCategory(e.target.value)}
-                    >
-                        {category.map((animal, index) => (
-                            <SelectItem key={index} value={animal}>
-                                {animal}
-                            </SelectItem>
-                        ))}
-                    </Select>
                 </div>
                 <Input
                     type="Text"
-                    label="Product Name"
+                    label="Category"
                     variant="bordered"
                     className="w-full"
-                    value={productName}
-                    onChange={(e) => setProductName(e.target.value)}
+                    value={category}
+                    onChange={(e) => setCategory(e.target.value)}
                 />
-                <div className="flex items-center justify-center">
-                <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
+              
+                <div className="flex items-center justify-center w-full">
+                    <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
                         Upload Product Image
                     </label>
                     <input
                         id="file-upload"
                         type="file"
-                        className="hidden border-[2px]"
+                        className="hidden border-[2px] "
                         onChange={handleFileChange}
                     />
                     {selectedFile && (
@@ -83,7 +72,7 @@ export default function AdminProduct() {
                     )}
                 </div>
                 <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={handleUpload}>
-                    Upload
+                    Submit
                 </button>
                 <Modal
                     size={"xs"}
