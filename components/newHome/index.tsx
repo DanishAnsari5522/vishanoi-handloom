@@ -8,7 +8,7 @@ import BottomHero from './bottomHero';
 
 export default function NewHome() {
   return (<>
-    {/* <Hero/> */}
+    <Hero/>
     <div className='container mx-auto px-5'>
 
 
