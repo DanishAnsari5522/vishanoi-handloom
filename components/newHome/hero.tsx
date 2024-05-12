@@ -15,17 +15,13 @@ export default function Hero() {
   return (
     <>
       <div className="homeHero">
-        <div className="overlay">
-          <p className="text-[54px]">Vishnoi</p>
-          <p className="text-[54px]">Handloom</p>
+        <div className="overlay" >
+          <p className="text-[54px]" style={{fontFamily:'font-thin'}}> Vishnoi</p>
+          <p className="text-[54px]" style={{fontFamily:'font-thin'}}>Handloom</p>
           <p className="text-[24px]">
             Where fashion and quality beautifies your life.
           </p>
-          <Button className={`floating-button ${loaded ? 'centered' : ''}`}>
-          <Link className="text-color-white" href="/newProduct">
-            Product
-          </Link>
-          </Button>
+          <Button className="w-[200px] bg-black hover:bg-gray-900 border-danger-50  text-white tracking-widest font-light py-2 px-4 rounded mt-12" >Product </Button>
         </div>
       </div>
     </>

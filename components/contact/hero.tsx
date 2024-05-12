@@ -4,7 +4,7 @@ export default function Hero() {
         <>
             <div className="aboutHero">
                 <div className="overlay">
-                    <p className="text-[54px]">ABOUT US</p>
+                    <p className="text-[54px]" >ABOUT US</p>
                     
                 </div>
             </div>

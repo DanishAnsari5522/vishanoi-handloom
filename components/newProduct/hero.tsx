@@ -4,7 +4,7 @@ export default function Hero() {
         <>
             <div className="productHero">
                 <div className="overlay">
-                    <p className="text-[54px]">Our Product Range</p>
+                    <p className="text-[54px]" style={{fontFamily:'font-thin'}}>Our Product Range</p>
                     
                 </div>
             </div>

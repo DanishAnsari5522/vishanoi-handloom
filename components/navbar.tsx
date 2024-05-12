@@ -35,7 +35,7 @@ export default function Navbars() {
         </NavbarBrand>
       </NavbarContent>
 
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="hidden sm:flex gap-4" justify="end" style={{fontFamily:'font-thin'}}>
         <NavbarBrand>
           <Image
             src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
@@ -86,7 +86,7 @@ export default function Navbars() {
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/newProduct" onClick={() => (setIsMenuOpen(false))}>
+          <Link color="foreground" href="/newProduct" onClick={() => (setIsMenuOpen(false))} >
             PRODUCT
           </Link>
         </NavbarItem>
