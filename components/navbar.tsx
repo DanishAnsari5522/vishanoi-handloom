@@ -6,7 +6,7 @@ import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, Navb
 // import VishnoiLogo from "../public/assets/Images/VishnoiLogo.png"
 
 export default function Navbars() {
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     "HOME",
@@ -41,7 +41,7 @@ export default function Navbars() {
             src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
           />
         </NavbarBrand>
-        <NavbarItem onClick={()=>(setIsMenuOpen(true))}>
+        <NavbarItem onClick={() => (setIsMenuOpen(true))}>
 
           <Link color="foreground" href="/">
             HOME
@@ -66,26 +66,27 @@ export default function Navbars() {
 
 
 
-      <NavbarMenu  
-      isMenuOpen={isMenuOpen}
-      onMenuOpenChange={setIsMenuOpen} >
+      <NavbarMenu
+        isMenuOpen={isMenuOpen as boolean}
+        onMenuOpenChange={setIsMenuOpen}
+      >
         <NavbarItem>
-          <Link color="foreground" href="/" onClick={()=>(setIsMenuOpen(false))}>
+          <Link color="foreground" href="/" onClick={() => (setIsMenuOpen(false))}>
             HOME
           </Link>
         </NavbarItem>
         <NavbarItem >
-          <Link color="foreground" href="/aboutUs" onClick={()=>(setIsMenuOpen(false))}>
+          <Link color="foreground" href="/aboutUs" onClick={() => (setIsMenuOpen(false))}>
             ABOUT
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/contactUS" onClick={()=>(setIsMenuOpen(false))}>
+          <Link color="foreground" href="/contactUS" onClick={() => (setIsMenuOpen(false))}>
             CONTACT
           </Link>
         </NavbarItem>
         <NavbarItem>
-          <Link color="foreground" href="/newProduct" onClick={()=>(setIsMenuOpen(false))}>
+          <Link color="foreground" href="/newProduct" onClick={() => (setIsMenuOpen(false))}>
             PRODUCT
           </Link>
         </NavbarItem>

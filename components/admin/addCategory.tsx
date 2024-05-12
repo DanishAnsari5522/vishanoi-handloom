@@ -1,46 +1,72 @@
 import React, { useState } from 'react';
 import { Select, SelectItem, Input, Modal, ModalBody, ModalContent, ModalFooter, Button, ModalHeader, useDisclosure } from "@nextui-org/react";
 import axios from 'axios';
+import router from 'next/router';
 
 export default function AddCategory() {
-    // const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
-    const [selectedFile, setSelectedFile] = useState<any>(null);
-    // const [productName, setProductName] = useState('');
     const [category, setCategory] = useState('');
-    const { isOpen, onOpen, onClose } = useDisclosure();
 
-    const token = sessionStorage.getItem('token');
+    const [selectedFile, setSelectedFile]: any = useState(null);
+    const [loading, setLoading] = useState(false);
+    // console.log(image);
+    // console.log(selectedCategory);
 
     const handleFileChange = (e: any) => {
         const file = e.target.files[0]; // Access the first selected file
         setSelectedFile(file);
-        console.log("selectedFile", file);
+        // console.log("selectedFile", file);
     };
 
-    const handleUpload = () => {
-        handleOpen()
-        const formData = new FormData();
-        formData.append('file', selectedFile);
-        // formData.append('productName', productName);
-        // formData.append('category', selectedCategory);
+    const onSubmit = async () => {
 
-        axios.post('YOUR_API_ENDPOINT', formData, {
-            headers: {
-                'Content-Type': 'multipart/form-data',
-                'Authorization': `Bearer ${token}`
-            }
+        const data = new FormData();
+        data.append('file', selectedFile)
+        data.append('upload_preset', 'Helohair')
+        setLoading(true)
+        // console.log(data);
+
+
+        const res = await fetch("https://api.cloudinary.com/v1_1/dbz8cdpis/image/upload", {
+            method: 'POST',
+            body: data
         })
-            .then(response => {
-                handleOpen()
-                console.log('Upload successful', response);
-            })
-            .catch(error => {
-                console.error('Error uploading file', error);
-            });
+        const file = await res.json()
+        console.log(file.url);
+        // console.log(selectedCategory);
+
+        // setProductImage(file.url)
+        // console.log(productName, category[selectedCategory], file.url, 'test', productPrice);
+        let productImage;
+        if (file.url) {
+            productImage = file.url;
+            console.log("uploaded");
+
+            let result = fetch('https://vishnoi-handloom-api.vercel.app/v1/category/addcategory', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    category: category,
+                    coverURL: file.url
+                }),
+            }).then(res => res.json()).then(
+                async data => {
+                    if (data.success == false) {
+                        // console.log("Error");
+                        alert('error')
+
+                    } else if (data.success == true) {
+                        router.push('/');
+                    }
+                }
+            )
+
+        } else {
+            console.log("uploaded");
+        }
     }
-    const handleOpen = () => {
-        onOpen();
-    }
+
 
     return (
         <div className='flex flex-col justify-center items-center gap-[20px] mt-[50px] '>
@@ -56,7 +82,7 @@ export default function AddCategory() {
                     value={category}
                     onChange={(e) => setCategory(e.target.value)}
                 />
-              
+
                 <div className="flex items-center justify-center w-full">
                     <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
                         Upload Product Image
@@ -71,10 +97,10 @@ export default function AddCategory() {
                         <p className="ml-4">Selected file: {selectedFile.name}</p>
                     )}
                 </div>
-                <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={handleUpload}>
+                <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={onSubmit}>
                     Submit
                 </button>
-                <Modal
+                {/* <Modal
                     size={"xs"}
                     isOpen={isOpen}
                     onClose={onClose}
@@ -100,7 +126,7 @@ export default function AddCategory() {
                             </>
                         )}
                     </ModalContent>
-                </Modal>
+                </Modal> */}
             </div>
         </div>
     )

@@ -46,7 +46,8 @@ export default function FilterProducts(props: any) {
 
                     {
                         data &&
-                        data.map((item:any, index:any) => (
+                        data.map((item: any, index: any) => (
+                            item.category === props.title &&
                             <Card
                                 className="py-4 shadow-none"
                                 key={index}

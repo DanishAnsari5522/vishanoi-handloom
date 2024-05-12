@@ -1,67 +1,24 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Select, SelectItem, Input, Modal, ModalBody, ModalContent, ModalFooter, Button, ModalHeader, useDisclosure } from "@nextui-org/react";
 import axios from 'axios';
+import router from 'next/router';
 
 export default function AdminProduct() {
     const category = ["Bedsheet", "Cusion Cover", "Mattress", "Pilow Covered", "Blanket"];
-    // const [selectedFile, setSelectedFile] = useState<any>(null);
-    // const [productName, setProductName] = useState('');
     const [selectedCategory, setSelectedCategory]: any = useState();
-    // const { isOpen, onOpen, onClose } = useDisclosure();
-
-    // const token = sessionStorage.getItem('token');
-
-    // const handleFileChange = (e: any) => {
-    //     const file = e.target.files[0]; // Access the first selected file
-    //     setSelectedFile(file);
-    //     console.log("selectedFile", file);
-    // };
-
-    // const handleUpload = () => {
-    //     handleOpen()
-    //     const formData = new FormData();
-    //     formData.append('file', selectedFile);
-    //     formData.append('productName', productName);
-    //     formData.append('category', selectedCategory);
-
-    //     axios.post('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', formData, {
-    //         headers: {
-    //             'Content-Type': 'multipart/form-data',
-    //             'Authorization': `Bearer ${token}`
-    //         }
-    //     })
-    //         .then(response => {
-    //             handleOpen()
-    //             console.log('Upload successful', response);
-    //         })
-    //         .catch(error => {
-    //             console.error('Error uploading file', error);
-    //         });
-    //     console.log(formData);
-
-    // }
-    // const handleOpen = () => {
-    //     onOpen();
-    // }
-
-    const [productDetail, setProductDetail] = useState('');
-    const [productPrice, setProductPrice] = useState(0);
-    const [productCategori, setProductCategori] = useState('');
     const [productName, setProductName] = useState('');
     const [selectedFile, setSelectedFile]: any = useState(null);
-    // const [productImage, setProductImage] = useState('');
-    const [productData, setProuctData]: any = useState()
-    const [error, setError] = useState('');
-
     const [loading, setLoading] = useState(false);
-    const [image, setImage] = useState("")
-    console.log(image);
-    console.log(selectedCategory);
+    const [categoryData, setcategoryData]: any = useState();
+    const [isLoading, setIsLoading] = useState(false);
+    const [error, setError]: any = useState(null);
+    // console.log(image);
+    // console.log(selectedCategory);
 
     const handleFileChange = (e: any) => {
         const file = e.target.files[0]; // Access the first selected file
         setSelectedFile(file);
-        console.log("selectedFile", file);
+        // console.log("selectedFile", file);
     };
 
     const onSubmit = async () => {
@@ -70,7 +27,7 @@ export default function AdminProduct() {
         data.append('file', selectedFile)
         data.append('upload_preset', 'Helohair')
         setLoading(true)
-        console.log(data);
+        // console.log(data);
 
 
         const res = await fetch("https://api.cloudinary.com/v1_1/dbz8cdpis/image/upload", {
@@ -78,60 +35,75 @@ export default function AdminProduct() {
             body: data
         })
         const file = await res.json()
-        console.log(file.url);
-        console.log(selectedCategory);
+        // console.log(file.url);
+        // console.log(selectedCategory);
 
         // setProductImage(file.url)
-        console.log(productName, category[selectedCategory], file.url, 'test', productPrice);
+        // console.log(productName, category[selectedCategory], file.url, 'test', productPrice);
         let productImage;
         if (file.url) {
             productImage = file.url;
             console.log("uploaded");
 
-            // fetch('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
-            //     method: 'POST',
-            //     body: JSON.stringify({ name: productName, category: category[selectedCategory], coverURL: file.url, discription: "test", price: productPrice }),
-            //     headers: {
-            //         'Content-Type': 'application/json',
-            //     }
-            // })
-            //     .then(res => res.json()).then(
-            //         data => {
-            //             console.log(data);
-            //             if (data.success == false) {
-            //                 setError(data.success);
-            //                 alert(data.success)
-            //                 // alert("Select the Category");
-            //             } else {
-            //                 // navigation.navigate('Home');
-            //                 alert("Submit successfully");
-            //                 window.location.replace("/newProduct");
-            //             }
-            //         }
-            //     )
-
-
-            try {
-                const response = await axios.post('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
+            let result = fetch('https://vishnoi-handloom-api.vercel.app/v1/product/addProduct', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
                     name: productName,
-                    category: category[selectedCategory],
+                    category: categoryData[selectedCategory].category,
                     coverURL: file.url,
-                    discription: "test",
-                    price: productPrice
-                });
-                const newToken = response.data;
-                // setProuctData(newToken);
-                // router.push('/admin');
-                alert('done')
-            } catch (error) {
-                console.error('Login failed:', error);
-            }
+                    discription: "It madeup of pure fabric",
+                    price: 100
+
+                }),
+            }).then(res => res.json()).then(
+                async data => {
+                    if (data.success == false) {
+                        // console.log("Error");
+                        alert('error')
+
+                    } else if (data.success == true) {
+                        router.push('/');
+                    }
+                }
+            )
 
         } else {
             console.log("uploaded");
         }
     }
 
+
+
+
+    const fetchData = async () => {
+        setIsLoading(true);
+        try {
+            const response = await axios.get('https://vishnoi-handloom-api.vercel.app/v1/category/getAllcategory');
+            setcategoryData(response.data);
+            console.log(response.data);
+            console.log(categoryData);
+
+        } catch (error) {
+            setError(error);
+        } finally {
+            setIsLoading(false);
+        }
+    };
+
+    useEffect(() => {
+        fetchData();
+    }, []);
+
+    if (isLoading) {
+        return <div>Loading...</div>;
+    }
+
+    if (error) {
+        return <div>Error: {error.message}</div>;
+    }
 
 
     return (
@@ -145,9 +117,9 @@ export default function AdminProduct() {
                         value={selectedCategory}
                         onChange={(e) => setSelectedCategory(e.target.value)}
                     >
-                        {category.map((animal, index) => (
-                            <SelectItem key={index} value={animal}>
-                                {animal}
+                        {categoryData && categoryData.map((item: any, index: any) => (
+                            <SelectItem key={index} value={item.category}>
+                                {item.category}
                             </SelectItem>
                         ))}
                     </Select>
