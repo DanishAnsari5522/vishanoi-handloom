@@ -43,7 +43,7 @@ export default function ContactPage() {
                     </div>
 
                     <div className="my-8">
-                        <Button className="rounded-full mt-3" color="primary" variant="ghost">Submit</Button>
+                    <Button color="primary" variant="shadow">Submit </Button> 
 
                     </div>
 

@@ -34,7 +34,7 @@ export default function ProductCategories() {
    < div style={{ padding: '0px' }}>
       {/* <Homes /> */}
       <h2 style={{ fontWeight: '600', marginLeft: '20px' }}>Your home for all </h2>
-      <p style={{ fontSize: '30px', fontWeight: '600', marginLeft: '20px', marginBottom: "10px" }}>Bedding essentials!</p>
+      <p style={{ fontSize: '30px', fontWeight: '600', marginLeft: '20px', marginBottom: "10px" , fontFamily:'Noto Sans'}}>Bedding essentials!</p>
       {/* <div className="gap-4 grid grid-cols-1 md:grid-cols-6">
 
         {list.map((item, index) => (
