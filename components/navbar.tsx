@@ -67,8 +67,8 @@ export default function Navbars() {
 
 
       <NavbarMenu
-        isMenuOpen={isMenuOpen as boolean}
-        onMenuOpenChange={setIsMenuOpen}
+        // isMenuOpen={isMenuOpen as boolean}
+        // onMenuOpenChange={setIsMenuOpen}
       >
         <NavbarItem>
           <Link color="foreground" href="/" onClick={() => (setIsMenuOpen(false))}>
