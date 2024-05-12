@@ -4,11 +4,11 @@ import ContactPage from "./contactPage";
 export default function ContactUs() {
   return (
     <>
-    <Hero/>
-    <div  className='container mx-auto px-5'>
-   <ContactPage/>
-   </div>
-    
+      <Hero />
+      <div className='container mx-auto px-5'>
+        <ContactPage />
+      </div>
+
     </>
   );
 }

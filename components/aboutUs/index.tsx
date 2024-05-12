@@ -6,12 +6,14 @@ import Hero from "./hero";
 export default function AboutUsPage() {
   return (
     <>
-    <Hero/>
-    <div  className='container mx-auto px-5'>
-   <AboutCompany />
-   <WhyUS />
-   </div>
-    
+      {/* <div className='container mx-auto px-5' > */}
+        <Hero />
+      {/* </div> */}
+      <div className='container mx-auto px-5'>
+        <AboutCompany />
+        <WhyUS />
+      </div>
+
     </>
   );
 }

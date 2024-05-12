@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from "react";
-import Image from 'next/image';
-import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
+// import Image from 'next/image';
+import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button,Image } from "@nextui-org/react";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 // import VishnoiLogo from "../public/assets/Images/VishnoiLogo.png"
 
@@ -29,7 +29,7 @@ export default function Navbars() {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <Image
-            src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
+            src="https://res.cloudinary.com/dbz8cdpis/image/upload/v1715529332/vtests_uhaf80.png" alt="My Image" width={100} height={100}
           />
 
         </NavbarBrand>
@@ -38,7 +38,7 @@ export default function Navbars() {
       <NavbarContent className="hidden sm:flex gap-4" justify="end" style={{fontFamily:'font-thin'}}>
         <NavbarBrand>
           <Image
-            src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
+            src="https://res.cloudinary.com/dbz8cdpis/image/upload/v1715529332/vtests_uhaf80.png" alt="My Image" width={120} height={120}
           />
         </NavbarBrand>
         <NavbarItem onClick={() => (setIsMenuOpen(true))}>
