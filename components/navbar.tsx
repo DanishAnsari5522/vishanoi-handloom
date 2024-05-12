@@ -1,11 +1,12 @@
 import React from "react";
+import { useState } from "react";
 import Image from 'next/image';
 import { Navbar, NavbarBrand, NavbarMenuToggle, NavbarMenuItem, NavbarMenu, NavbarContent, NavbarItem, Link, Button } from "@nextui-org/react";
 // import {AcmeLogo} from "./AcmeLogo.jsx";
 // import VishnoiLogo from "../public/assets/Images/VishnoiLogo.png"
 
 export default function Navbars() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const menuItems = [
     "HOME",
@@ -28,24 +29,25 @@ export default function Navbars() {
       <NavbarContent className="sm:hidden pr-3" justify="center">
         <NavbarBrand>
           <Image
-          src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
-           />
-       
+            src="/assets/Images/Vtests.png" alt="My Image" width={20} height={20}
+          />
+
         </NavbarBrand>
       </NavbarContent>
 
       <NavbarContent className="hidden sm:flex gap-4" justify="end">
         <NavbarBrand>
-        <Image
-          src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
-           />         
+          <Image
+            src="/assets/Images/Vtests.png" alt="My Image" width={120} height={120}
+          />
         </NavbarBrand>
-        <NavbarItem>
+        <NavbarItem onClick={() => (setIsMenuOpen(true))}>
+
           <Link color="foreground" href="/">
             HOME
           </Link>
         </NavbarItem>
-        <NavbarItem isActive>
+        <NavbarItem >
           <Link color="foreground" href="/aboutUs" >
             ABOUT
           </Link>
@@ -64,21 +66,30 @@ export default function Navbars() {
 
 
 
-      <NavbarMenu>
-        {menuItems.map((item, index) => (
-          <NavbarMenuItem key={`${item}-${index}`}>
-            <Link
-              className="w-full"
-              color={
-                index === 2 ? "warning" : index === menuItems.length - 1 ? "danger" : "foreground"
-              }
-              href="#"
-              size="lg"
-            >
-              {item}
-            </Link>
-          </NavbarMenuItem>
-        ))}
+      <NavbarMenu
+        // isMenuOpen={isMenuOpen as boolean}
+        // onMenuOpenChange={setIsMenuOpen}
+      >
+        <NavbarItem>
+          <Link color="foreground" href="/" onClick={() => (setIsMenuOpen(false))}>
+            HOME
+          </Link>
+        </NavbarItem>
+        <NavbarItem >
+          <Link color="foreground" href="/aboutUs" onClick={() => (setIsMenuOpen(false))}>
+            ABOUT
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/contactUS" onClick={() => (setIsMenuOpen(false))}>
+            CONTACT
+          </Link>
+        </NavbarItem>
+        <NavbarItem>
+          <Link color="foreground" href="/newProduct" onClick={() => (setIsMenuOpen(false))}>
+            PRODUCT
+          </Link>
+        </NavbarItem>
       </NavbarMenu>
     </Navbar>
   );

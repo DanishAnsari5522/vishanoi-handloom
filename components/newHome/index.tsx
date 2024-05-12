@@ -7,19 +7,18 @@ import BottomHero from './bottomHero';
 
 
 export default function NewHome() {
- return (<>
-  <Hero/>
+  return (<>
+    <Hero/>
     <div className='container mx-auto px-5'>
-     
-
-<ProductCategory />
-<About/>
 
 
+      <ProductCategory />
+      <About />
 
-      
+
+
     </div>
-    <BottomHero/>
-    </>
+    <BottomHero />
+  </>
   )
 }
