@@ -93,9 +93,9 @@ export default function AddCategory() {
                         className="hidden border-[2px] "
                         onChange={handleFileChange}
                     />
-                    {selectedFile && (
+                    {/* {selectedFile && (
                         <p className="ml-4">Selected file: {selectedFile.name}</p>
-                    )}
+                    )} */}
                 </div>
                 <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" onClick={onSubmit}>
                     Submit

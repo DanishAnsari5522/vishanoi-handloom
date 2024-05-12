@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Card, CardBody, CardFooter, CardHeader, Button, Image } from "@nextui-org/react";
+import { Input, Card, CardBody, CardFooter, CardHeader, Button, Image, Dropdown, DropdownTrigger, DropdownMenu, DropdownItem, Modal, ModalContent, ModalHeader, ModalBody, ModalFooter, useDisclosure } from "@nextui-org/react";
 import axios from 'axios';
 
 
@@ -8,6 +8,11 @@ export default function ProductCategory() {
     const [data, setData]: any = useState();
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError]: any = useState(null);
+    const [dropdown, setDropDown] = useState(false);
+    // const [sessionData, setSessionData]: any = useState('');
+    const { isOpen: deleteModalOpen, onOpen: openDeleteModal, onClose: closeDeleteModal } = useDisclosure();
+    const { isOpen: editModalOpen, onOpen: openEditModal, onClose: closeEditModal } = useDisclosure();
+
 
     const fetchData = async () => {
         setIsLoading(true);
@@ -24,7 +29,23 @@ export default function ProductCategory() {
         }
     };
 
+    const Auth = () => {
+        const authCheck = window.sessionStorage.getItem('token');
+        if (authCheck) {
+            console.log("Login ");
+            setDropDown(true);
+
+        } else {
+            console.log("logout");
+            setDropDown(false);
+
+        }
+    }
+
+
+
     useEffect(() => {
+        Auth();
         fetchData();
     }, []);
 
@@ -59,6 +80,21 @@ export default function ProductCategory() {
                                         src={item.coverURL}
 
                                     />
+                                    {dropdown === true ? (<Dropdown>
+                                        <DropdownTrigger>
+                                            <Button
+                                                variant="bordered"
+                                            >
+                                                Open Menu
+                                            </Button>
+                                        </DropdownTrigger>
+                                        <DropdownMenu
+                                            aria-label="Action event example"
+                                        >
+                                            <DropdownItem key="new" onPress={openDeleteModal}>Delete Category</DropdownItem>
+                                            <DropdownItem key="copy" onPress={openEditModal}>Edit Category</DropdownItem>
+                                        </DropdownMenu>
+                                    </Dropdown>) : null}
                                 </CardBody>
                                 <CardHeader className="pb-0 pt-2 px-4 flex-col items-center">
                                     <p className="text-tiny uppercase font-bold text-center">{item.category}</p>
@@ -68,6 +104,63 @@ export default function ProductCategory() {
                     }
                 </div>
             </div>
+            <Modal isOpen={deleteModalOpen} onOpenChange={closeDeleteModal}>
+                <ModalContent>
+                    <ModalHeader className="flex flex-col gap-1">Delete</ModalHeader>
+                    <ModalBody>
+                        <p>Are you sure you want to delete this image?</p>
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="danger" variant="light" onPress={closeDeleteModal}>
+                            Cancel
+                        </Button>
+                        <Button color="primary" onPress={closeDeleteModal}>
+                            Delete
+                        </Button>
+                    </ModalFooter>
+                </ModalContent>
+            </Modal>
+
+            <Modal isOpen={editModalOpen} onOpenChange={closeEditModal}>
+                <ModalContent>
+                    <ModalHeader className="flex flex-col gap-1">Edit Category</ModalHeader>
+                    <ModalBody>
+                        {/* Add your edit category form here */}
+                        <div className="bg-white p-6 rounded-lg  flex flex-col gap-[20px] md:w-full max-md-w-full ">
+                            <p className='text-center font-bold text-size-[60px]'>Add Category</p>
+                            <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+                            </div>
+                            <Input
+                                type="Text"
+                                label="Category"
+                                variant="bordered"
+                                className="w-full"
+                                value=""
+                            // onChange={(e) => setCategory(e.target.value)}
+                            />
+
+                            <div className="flex items-center justify-center w-full">
+                                <label htmlFor="file-upload" className="custom-file-upload text-center text-lg md:text-sm lg:text-lg xl:text-xl mb-2 md:mb-0">
+                                    Upload Product Image
+                                </label>
+                                <input
+                                    id="file-upload"
+                                    type="file"
+                                    className="hidden border-[2px] "
+                                // onChange={handleFileChange}
+                                />
+                                {/* {selectedFile && (
+                        <p className="ml-4">Selected file: {selectedFile.name}</p>
+                    )} */}
+                            </div>
+                            <button className="w-full bg-black hover:bg-gray-900 text-white font-bold py-2 px-4 rounded mt-4" type="button" >
+                                Submit
+                            </button>
+
+                        </div>                    </ModalBody>
+
+                </ModalContent>
+            </Modal>
         </>
 
     );

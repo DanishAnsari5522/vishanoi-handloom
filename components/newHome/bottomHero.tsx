@@ -2,7 +2,7 @@ import React from "react";
 export default function BottomHero() {
     return (
         <>
-            <div className="bottomHero">
+            <div className="homeHero">
                 <div className="overlay">
                     <p className="text-[54px]" style={{fontFamily:'font-thin'}}>Vishnoi</p>
                     <p  className="text-[54px]" style={{fontFamily:'font-thin'}}>Handloom</p>
