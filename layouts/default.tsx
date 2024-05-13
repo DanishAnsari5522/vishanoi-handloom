@@ -11,10 +11,11 @@ export default function DefaultLayout({
 }) {
     return (
         <>
-            <Head />
+{/*             <Head />
             <Navbars />
             <main>{children}</main>
-            <Footer />
+            <Footer /> */}
+            <p>404</p>
         </>
     );
 }
