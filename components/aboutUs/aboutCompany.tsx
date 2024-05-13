@@ -5,7 +5,7 @@ export default function AboutCompany() {
         <>
             <div className="grid grid-cols-2 max-md:grid-cols-1 my-12">
                 <div>
-                    <p style={{ fontSize: '28px', fontWeight: '500',fontFamily:'Cinzel' }}>Welcome to Vishnoi Handloom!</p>
+                    <p style={{ fontSize: '28px', fontWeight: '500',fontFamily:'Inconsolata' }}>Welcome to Vishnoi Handloom!</p>
                     <Image className="w-[50%] mt-8"
                     
                     src="https://manishhandloomfactory.com/wp-content/uploads/2020/06/IMG-20200112-WA0007.jpg"
