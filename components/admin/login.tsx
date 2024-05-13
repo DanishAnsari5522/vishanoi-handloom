@@ -43,7 +43,7 @@ export default function Login() {
   };
   const toggleVisibility = () => setIsVisible(!isVisible);
   return (
-    <div className='flex flex-col justify-center items-center gap-[20px] mt-[150px] '>
+    <div className='flex flex-col justify-center items-center gap-[20px] h-screen'>
       <div className="bg-white p-6 rounded-lg shadow-md flex flex-col gap-[20px] md:w-1/3 max-md-w-full border-[1px]">
 
         <p className='text-center font-bold text-size-[60px]'>Admin Login</p>
